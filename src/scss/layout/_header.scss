@@ -1,0 +1,14 @@
+header {
+    position: fixed;
+    top: 0;
+    text-align: center;
+    background-color: #444;
+    width: 100%;
+    border-bottom: solid #222 2px;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
+    
+    h1 {
+        margin: 1rem 0;
+        font-size: 1.5rem;
+    }
+}

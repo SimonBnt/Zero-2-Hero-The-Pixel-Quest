@@ -1,0 +1,7 @@
+@import "abstracts/variables", "abstracts/mixins";
+
+@import "base/reset";
+
+@import "layout/default", "layout/header", "layout/main", "layout/footer";
+
+@import "components/canva";

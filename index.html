@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Méta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- og -->
+
+    <!-- title -->
+    <title>Zero 2 Hero : The Pixel Quest</title>
+    
+    <!-- styles sheets -->
+    <link rel="stylesheet" href="/assets/css/styles.min.css">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet"> 
+    
+    <!-- js script -->
+    <script src="/assets/js/main.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Zero 2 Hero : The Pixel Quest</h1>
+    </header>
+    <main id="screen">
+
+        <!-- Canvas -->
+
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- Interface -->
+
+        <div id="interface">
+
+            <!-- HUD -->
+
+            <section id="hud">
+                <div id="heroStatsContainer" class="statsContainers">
+                    <div id="heroName">zero</div>
+                    <div id="heroHP">pv : 10</div>
+                    <div id="heroMana">mana : 10</div>
+                    <div id="heroAtk">atk : 1</div>
+                    <div id="heroDef">def : 1</div>
+                    <div id="heroMag">int : 1</div>
+                </div>
+                <div id="bossStatsContainer" class="statsContainers">
+                    <div id="bossName">boss</div>
+                    <div id="bossHP">pv : 10</div>
+                    <div id="bossMana">mana : 10</div>
+                    <div id="bossAtk">atk : 1</div>
+                    <div id="bossDef">def : 1</div>
+                    <div id="bossMag">int : 1</div>
+                </div>
+                <div id="dialogueBox"></div>
+            </section>
+            
+            <!-- Controller -->
+    
+            <section id="control"> 
+                <button id="attack">attack</button>   
+                <button id="defence">defence</button>
+                <button id="heal">heal</button>
+                <button id="objects">objects</button>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <a href="">@mentions légales</a>
+        <p>
+            Designed and developed in 2023 by
+            <a href="">Simon Bénet</a>
+        </p>
+    </footer>
+</body>
+</html>
