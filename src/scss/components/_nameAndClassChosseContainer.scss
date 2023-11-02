@@ -1,0 +1,108 @@
+#nameAndClassChooseContainer {
+    border: solid 2px black;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    background-color: #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+
+    @include respondTo(md) {
+        margin: 0;
+    }
+
+    &.gameOff {
+        display: none;
+    }
+
+    #nameEditContainer {
+        margin-bottom: 2rem;
+        
+        &::after {
+            content: "*If you don't choose a new name, 'Zero' will be choose by default";
+            font-size: 1rem;
+        }
+
+        #editNewName {
+            border: solid 2px black;
+            border-radius: 0.5rem;
+            width: 200px;
+            padding: 0.5rem 1rem;
+
+            @include respondTo(md) {
+                &:hover {
+                    cursor: pointer;                    
+                    background-color: white;
+                }
+            }
+        }
+    }
+
+    #classChooseContainer {
+        #classContainer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0 1rem;
+
+            @include respondTo(md) {
+                flex-direction: row;
+            }
+
+            .classContainers {
+                border: solid 2px black;
+                border-radius: 0.5rem;
+                font-size: 1.25rem;
+                width: fit-content;
+                word-break: break-all;
+                width: 300px;
+                padding: 0.5rem;
+
+                h4 {
+                    text-transform: uppercase;
+                    font-size: 1.5rem;
+                    text-align: center;
+                    margin-bottom: 0.25rem;
+                }
+
+                button {
+                    margin: 0.5rem 0;
+                }
+
+                .classInfos {
+                    margin-top: 0.25rem;
+                    opacity: 0.8;
+                }
+
+                .startingItemsChooseContainers {
+                    .startingItemTitle {
+                        margin-top: 0.25rem;
+                    }
+                }
+
+                .classBtns {
+                    text-transform: uppercase;
+                    font-family: 'VT323', monospace;
+                    border-right: solid black 2px;
+                    border-bottom: solid black 2px;
+                    border-radius: 0.5rem;
+                    padding: 0.5rem;
+                    transition: 0.4s;
+                    font-size: 1.25rem;
+
+                    @include respondTo(md) {
+                        &:hover {
+                            cursor: pointer;
+                            transform: translateY(-4px);
+                            transition: 0.4s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

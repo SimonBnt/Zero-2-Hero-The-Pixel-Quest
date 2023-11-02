@@ -1,59 +1,79 @@
+.gameOff {
+    border: none !important;
+}
+
 #screen {
     position: relative;
-    background-color: white;
+    background-color: #333;
     border: solid 4px black;
     border-radius: 0.75rem;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    canvas {
-        width: 300px;
-        height: 300px;
-
-        @include respondTo(tab) {
-            width: 400px;
-            height: 400px;
+    #gameContainer {
+        // js event on playBtn //
+        
+        &.gameOff {
+            display: none;
         }
 
-        @include respondTo(sm) {
-            width: 600px;
-            height: 600px;
-        }
-
-        @include respondTo(md) {
-            width: 800px;
-            height: 800px;
-        }
-    }
-
-    #interface {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-
-        #hud {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            display: flex;
-            width: 100%;
-
-            .statsContainers {
-                text-transform: uppercase;
+        #canvasContainer {
+            height: 198px;
+            position: relative;
+            
+            canvas {
+                border-top-right-radius: 0.5rem;
+                border-top-left-radius: 0.5rem;
             }
     
-            #bossStatsContainer {
-                margin-left: auto;
-                margin-right: 40px;
-            }
-        }
+            #objectInventory {
+                position: absolute;
+                bottom: 0;
+                background-color: #eee;
+                color: black;
+                height: 50px;
+                width: 100%;
+                border-top: 2px solid black;
+                border-bottom: 2px solid black;
     
-        #control {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
+                // js event on object inventory//
+                display: none;
+    
+                ul {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+                    li::before {
+                        content: "-";
+                    }
+                }
+            }
+    
+            #itemInventory {
+                position: absolute;
+                bottom: 0;
+                background-color: #eee;
+                color: black;
+                height: 60px;
+                width: 100%;
+                border-top: 2px solid black;
+                border-bottom: 2px solid black;
+    
+                 // js event on item inventory//
+                 display: none;
+    
+                ul {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+    
+                    li::before {
+                        content: "-";
+                    }
+                }
+            }
         }
     }
 }

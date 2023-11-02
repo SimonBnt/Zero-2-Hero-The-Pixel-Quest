@@ -19,51 +19,154 @@
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet"> 
     
     <!-- js script -->
-    <script src="/assets/js/main.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
 </head>
 <body>
     <header>
         <h1>Zero 2 Hero : The Pixel Quest</h1>
     </header>
-    <main id="screen">
+    <main id="screen" class="gameOff">
 
-        <!-- Canvas -->
+        <!-- PLAY BTN -->
 
-        <canvas id="gameCanvas"></canvas>
+        <button id="playBtn"></button>
 
-        <!-- Interface -->
+        <!-- NAME AND CLASS CHOOSE -->
 
-        <div id="interface">
+        <div id="nameAndClassChooseContainer" class="gameOff">
+            <div id="nameEditContainer">
+                <span>Choose your name :</span>
+                <span id="editNewName">Zero</span>
+            </div>
+            <div id="classChooseContainer">
+                <span>Choose your class : </span>
+                <span style="font-size: 1rem;">*All classes can heal and use items, healing use mana</span>
+                <div id="classContainer">
+                    <div id="warriorContainer" class="classContainers">
+                        <h4>warrior</h4>
+                        <div>Atk : 4</div>
+                        <div>Def : 3</div>
+                        <div>Int : 1</div>
+                        <div>1st hand : Wood sword</div>
+                        <div>2nd hand : Wood Shield</div>
+                        <div>Body : Chainmail</div>
+                        <div>Head : Empty</div>
+                        <div class="classInfos">*Critical strikes stun enemies during 1 turn</div>
+                        <div class="startingItemsChooseContainers">
+                            <h4 class="startingItemTitle">starting Item</h4>
+                            <div class="checkboxContainers">
+                                <label for="bandage">Bandage (10pv)</label>
+                                <input type="checkbox" name="bandage">
+                            </div>
+                            <div class="checkboxContainers">
+                                <label for="water">Water bottle (10mana)</label>
+                                <input type="checkbox" name="water">
+                            </div>
+                            <div class="checkboxContainers">
+                                <label for="ticket">merchant's ticket (summon merchant)</label>
+                                <input type="checkbox" name="ticket">
+                            </div>
+                        </div>
+                        <button id="warriorChooseBtn">Choose the "Warrior"</button>
+                    </div>
+                    <div id="wizardContainer" class="classContainers">
+                        <h4>wizard</h4>
+                        <div>Atk : 1</div>
+                        <div>Def : 2</div>
+                        <div>Int : 4</div>
+                        <div>1st hand : Wood wand</div>
+                        <div>2nd hand : Empty</div>
+                        <div>Body : Silk dress</div>
+                        <div>Head : "Magic" hat</div>
+                        <div class="classInfos">*Wizard make lot of damage but use magic to fight, it means that if you don't have mana you will have to fight with your "magic" wood stick. To defend yourself you have to use your magic shield, it also use mana.</div>
+                        <div class="startingItemsChooseContainers">
+                            <h4 class="startingItemTitle">starting Item</h4>
+                            <div class="checkboxContainers">
+                                <label for="bandage">Bandage (10pv)</label>
+                                <input type="checkbox" name="bandage">
+                            </div>
+                            <div class="checkboxContainers">
+                                <label for="water">Water bottle (10mana)</label>
+                                <input type="checkbox" name="water">
+                            </div>
+                            <div class="checkboxContainers">
+                                <label for="ticket">merchant's ticket (summon merchant)</label>
+                                <input type="checkbox" name="ticket">
+                            </div>
+                        </div>
+                        <button id="warriorChooseBtn" class="classBtns">Choose the "Wizard"</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="gameContainer" class="gameOff">
+
+                <!-- Canvas -->
+
+            <div id="canvasContainer">
+                <canvas class="gameCanvas" width="352" height="198"></canvas>
+
+                <div id="itemInventory">
+                    <ul>
+                        <li>head : helmet</li>
+                        <li>body : armune</li>
+                        <li>1st hand : sword</li>
+                        <li>2nd hand : shield</li>
+                        <li>necklace : fire necklace</li>
+                        <li>ring : fire ring</li>
+                    </ul>
+                </div>
+                <div id="objectInventory">
+                    <ul>
+                        <!-- <li></li> -->
+                    </ul>
+                </div>
+            </div>
 
             <!-- HUD -->
 
-            <section id="hud">
-                <div id="heroStatsContainer" class="statsContainers">
-                    <div id="heroName">zero</div>
-                    <div id="heroHP">pv : 10</div>
-                    <div id="heroMana">mana : 10</div>
-                    <div id="heroAtk">atk : 1</div>
-                    <div id="heroDef">def : 1</div>
-                    <div id="heroMag">int : 1</div>
+            <section id="hudContainer">
+                <div id="hud">
+                    <div id="levelState">level n° 1/10</div>
+                    <div id="heroStatsContainer" class="statsContainers">
+                        <div id="heroName" class="names">zero</div>
+                        <div id="heroHP">pv : 10</div>
+                        <div id="heroMana">mana : 10</div>
+                        <div id="heroAtk" class="stats">atk : 1</div>
+                        <div id="heroDef" class="stats">def : 1</div>
+                        <div id="heroMag" class="stats">int : 1</div>
+                    </div>
+                    <div id="bossStatsContainer" class="statsContainers">
+                        <div id="bossName" class="names">boss</div>
+                        <div id="bossHP">pv : 10</div>
+                        <div id="bossMana">mana : 10</div>
+                        <div id="bossAtk">atk : 1</div>
+                        <div id="bossDef">def : 1</div>
+                        <div id="bossMag">int : 1</div>
+                    </div>
                 </div>
-                <div id="bossStatsContainer" class="statsContainers">
-                    <div id="bossName">boss</div>
-                    <div id="bossHP">pv : 10</div>
-                    <div id="bossMana">mana : 10</div>
-                    <div id="bossAtk">atk : 1</div>
-                    <div id="bossDef">def : 1</div>
-                    <div id="bossMag">int : 1</div>
-                </div>
-                <div id="dialogueBox"></div>
             </section>
-            
+
             <!-- Controller -->
-    
+
             <section id="control"> 
-                <button id="attack">attack</button>   
-                <button id="defence">defence</button>
+                <button id="atk">attack</button>   
+                <button id="def">defence</button>
                 <button id="heal">heal</button>
-                <button id="objects">objects</button>
+                <button id="obj">objects</button>
+
+                <!-- inventory opener -->
+
+                <button id="itemInventoryOpener">inventory</button>
+            </section>
+
+            <!-- Game State Dialogue Box -->
+
+            <section id="dialogueBoxContainer">
+                <div id="dialogueBox">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet totam, illum nisi fugiat corporis sed consequatur ut non asperiores? Magnam veritatis praesentium sunt ducimus corrupti pariatur qui veniam, amet aut tenetur laboriosam modi ipsam nulla commodi impedit culpa, error maiores cupiditate nobis. Incidunt explicabo a corrupti, doloremque enim ducimus aperiam!</div>
+                <img src="https://cdn-icons-png.flaticon.com/128/54/54817.png" alt="" class="scroll" id="scrollTop"> 
+                <img src="https://cdn-icons-png.flaticon.com/128/54/54785.png" alt="" class="scroll" id="scrollBottom">
             </section>
         </div>
     </main>

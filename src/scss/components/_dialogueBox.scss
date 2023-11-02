@@ -1,0 +1,37 @@
+#dialogueBoxContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-top: solid 2px black;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    padding: 0.25rem;
+    overflow: hidden;
+    background-color: #d3d3d3;
+    
+    #dialogueBox {
+        width: 320px;
+        height: fit-content;
+        word-break: break-all;
+        padding: 0.25rem;
+        scroll-behavior: auto;
+    }
+
+    img {
+        position: absolute;
+        right: 3px;
+        width: 10px;
+    }
+
+    #scrollTop {
+        top: 5px;
+    }
+
+    #scrollBottom {
+        bottom: 5px;
+    }
+}

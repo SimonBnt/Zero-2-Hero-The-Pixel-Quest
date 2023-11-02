@@ -1,0 +1,63 @@
+#hudContainer {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 100%;
+    
+    #hud {
+        display: flex;
+        position: relative;
+
+        .statsContainers {
+            text-transform: uppercase;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #eee;
+            padding: 0.25rem;
+            border: solid 2px black;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+            width: 80px;
+
+            .names {
+                text-align: center;
+            }
+
+            #heroMana {
+                margin-bottom: 0.1rem;
+            }
+        }
+
+        #bossStatsContainer {
+            margin-left: auto;
+            margin-right: 10px;
+        }
+
+        .stats:not(:last-child) {
+            margin-bottom: 0.25rem;
+        }
+
+        .stats::after {
+            margin-left: 0.25rem;
+            content: "+";
+            color: black;
+            background-color: #ccc;
+            padding: 0 0.1rem;
+            border-radius: 0.5rem;
+        }
+
+        #levelState {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #eee;
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            text-transform: uppercase;
+            transform: translateX(-50%);           
+            border: solid 3px black;
+            border-top: none;
+            border-bottom-left-radius: 0.25rem;
+            border-bottom-right-radius: 0.25rem;
+            padding: 0.1rem;
+        }
+    }
+} 
