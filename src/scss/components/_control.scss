@@ -14,11 +14,13 @@
         width: 60px;
         padding: 0.25rem;
         font-family: 'VT323', monospace;
-
+        transition: 0.4s;
 
         @include respondTo(md) {
             &:hover {
                 cursor: pointer;
+                transform: translateY(-4px);
+                transition: 0.4s;
             }
         }
     }

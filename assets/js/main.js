@@ -1,11 +1,34 @@
 document.addEventListener("DOMContentLoaded", function () {
+
     // VARIABLES //   
 
     const screen = document.getElementById("screen")
     const canvasContainer = document.getElementById("canvasContainer")
     const playBtn = document.getElementById("playBtn")
     const gameContainer = document.getElementById("gameContainer")
-    const heroNameContainer = document.getElementById("heroName")
+    const nameAndClassChooseContainer = document.getElementById("nameAndClassChooseContainer")
+    const validateHeroName = document.getElementById("validateHeroName");
+    const heroNameContainer = document.getElementById("heroNameContainer");
+    const nameInput = document.getElementById("nameInput");
+    const saveNameButton = document.getElementById("saveNameButton");
+    const validateNameIcon = document.getElementById("validateNameIcon");
+    const nameMoreInfo = document.getElementById("nameMoreInfo")
+    const startingItemRadios = document.querySelectorAll('input[name="startingItemRadio"]');
+    const classButtons = document.querySelectorAll(".classBtns")
+    const startPrologueBtn = document.getElementById("startPrologueBtn")
+    const startPrologueConditions = document.getElementById("startPrologueConditions")
+    const prologueMainContainer = document.getElementById("prologueMainContainer")
+    const prologueContainer = document.getElementById("prologueContainer")
+
+    let playerName = ""
+    let selectedStartingItem = ""
+    let selectedClass = ""
+    
+    const prologueText = "Bonjour, je suis une chaîne de caractères !";
+
+    // screen.classList.remove("gameOff")
+    // gameContainer.classList.remove("gameOff")
+
 
     // THE GAME CONSTRUCTOR //
   
@@ -16,9 +39,77 @@ document.addEventListener("DOMContentLoaded", function () {
             this.ctx = this.canvas.getContext("2d")
         }
 
-        init() {
+        init() { // EVENTS HERE //
             this.loadImages()
-            playBtn.addEventListener("click", () => this.startGame())
+
+            playBtn.addEventListener("click", () => this.pushPlayBtn())
+                heroNameContainer.addEventListener("click", () => {
+                heroNameContainer.style.display = "none"
+                nameInput.style.display = "inline"
+                saveNameButton.style.display = "flex"
+                validateNameIcon.style.display = "none"
+                nameMoreInfo.textContent = "*If you don't choose a new name, 'Zero' will be choose by default if you save."
+            
+                // Set the initial value of the input to the current hero name //
+                nameInput.value = ""
+            })
+
+            saveNameButton.addEventListener("click", () => {
+                const newName = nameInput.value
+                nameMoreInfo.textContent = "You successfully took the name : " + newName
+                validateNameIcon.style.display = "inline"
+            
+                if (newName.trim() !== "") {
+                    validateHeroName.textContent = newName
+                    heroNameContainer.textContent = newName
+                } else {
+                    validateHeroName.textContent = "Zero"
+                    heroNameContainer.textContent = "Zero"
+                    nameMoreInfo.textContent = "You chose to keep the name : 'Zero'"
+                }
+
+                nameInput.style.display = "none";
+                heroNameContainer.style.display = "inline";
+                heroNameContainer.style.overflow = "hidden";
+                playerName = validateHeroName.textContent
+            })
+
+            for (const radio of startingItemRadios) {
+                radio.addEventListener("change", () => {
+                    selectedStartingItem = radio.value
+                })
+            }
+
+            for (const button of classButtons) {
+                button.addEventListener("click", () => {
+                    const validateClassIcons = document.querySelectorAll(".validateClassIcons")
+
+                    selectedClass = button.getAttribute("data-class")
+
+                    const correspondingIcon = document.querySelector(`.validateClassIcons[data-class="${selectedClass}"]`)
+                    
+                    validateClassIcons.forEach((icon) => {
+                        icon.style.display = "none"
+                    })
+            
+                    if (correspondingIcon) {
+                        correspondingIcon.style.display = "inline"
+                    }
+                })
+            }
+
+            startPrologueBtn.addEventListener("click", () => {
+                if (playerName && selectedStartingItem && selectedClass) {
+                    nameAndClassChooseContainer.style.display = "none"
+                    prologueMainContainer.style.display = "block"
+                } else {
+                    startGameConditions.style.display = "block"
+                }
+
+                // this.showPrologueTextCharacterByCharacter(prologueText)
+            })
+            
+            this.showPrologueTextCharacterByCharacter(prologueText)
         }
 
         loadImages() {
@@ -37,18 +128,17 @@ document.addEventListener("DOMContentLoaded", function () {
             warriorHero.src = "assets/img/hero.png"
         }
 
-        startGame() {
+        pushPlayBtn() {
             playBtn.classList.add("hidePlayBtn")
-            screen.classList.remove("gameOff")
-            gameContainer.classList.remove("gameOff")
-
-            window.setTimeout(() => {
-                const hero = { name: window.prompt("Enter new name") }
-
-                if (hero.name) {
-                    heroNameContainer.innerText = hero.name
-                }
-            }, 1000)
+            nameAndClassChooseContainer.classList.remove("gameOff")
+        }
+        
+        showPrologueTextCharacterByCharacter(element) {
+            for (let i = 0; i < element.length; i++) {
+                setTimeout(() => {
+                    prologueContainer.innerHTML += element[i]
+                }, i * 100)
+            }
         }
     }
 
@@ -59,25 +149,25 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 
     game.init()
+    
+    // ON LOAD : SHOW THE TEXT IN PLAY BTN //
+
+    showTextFromPlayBtnCharacterByCharacter(playBtn, "play")
 
     // FUNCTIONS //
 
-    function showTextCharacterByCharacter(element, text) {
+    function showTextFromPlayBtnCharacterByCharacter(element, text) {
         let currentIndex = 0
 
         function updateText() {
             if (currentIndex < text.length) {
                 element.innerText += text[currentIndex]
                 currentIndex++
-                setTimeout(updateText, 300)
+                setTimeout(updateText, 500)
             }
         }
         updateText()
     }
-
-    // ON LOAD : SHOW THE TEXT IN PLAY BTN //
-
-    showTextCharacterByCharacter(playBtn, "play")
 })
 
     // // LES PERSONNAGES //

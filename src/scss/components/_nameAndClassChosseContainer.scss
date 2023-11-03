@@ -11,6 +11,10 @@
     margin-top: 3rem;
     margin-bottom: 4rem;
 
+    // 
+    display: none;
+    // 
+    
     @include respondTo(md) {
         margin: 0;
     }
@@ -21,17 +25,23 @@
 
     #nameEditContainer {
         margin-bottom: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0 1rem;
         
-        &::after {
-            content: "*If you don't choose a new name, 'Zero' will be choose by default";
-            font-size: 1rem;
-        }
-
-        #editNewName {
-            border: solid 2px black;
-            border-radius: 0.5rem;
-            width: 200px;
+        .nameElements {
+            font-family: 'VT323', monospace;
+            box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
             padding: 0.5rem 1rem;
+            width: 100px;
+            height: 50px;
+            font-size: 2rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            border: solid 2px black;
+            background-color: #eee;
 
             @include respondTo(md) {
                 &:hover {
@@ -40,14 +50,47 @@
                 }
             }
         }
+
+        #nameInput {
+            display: none;
+            overflow: hidden;
+        }
+        
+        #saveNameButton {
+            border: none;
+            border-right: solid black 2px;
+            border-bottom: solid black 2px;
+            transition: 0.4s;
+            justify-content: center;
+            align-items: center;
+            display: none;
+
+            @include respondTo(md) {
+                &:hover {
+                    cursor: pointer;
+                    transform: translateY(-4px);
+                    transition: 0.4s;
+                }
+            }
+        }
+
+        #validateNameIcon {
+            width: 24px;
+            display: none;
+        }
+
+        #nameMoreInfo {
+            font-size: 1rem;
+        }
     }
 
     #classChooseContainer {
-        #classContainer {
+        #classMainContainer {
             display: flex;
             flex-direction: column;
             justify-content: center;
             gap: 0 1rem;
+            width: 620px;
 
             @include respondTo(md) {
                 flex-direction: row;
@@ -61,6 +104,10 @@
                 word-break: break-all;
                 width: 300px;
                 padding: 0.5rem;
+
+                .classNames {
+                    font-size: 1.75rem;
+                }
 
                 h4 {
                     text-transform: uppercase;
@@ -78,31 +125,97 @@
                     opacity: 0.8;
                 }
 
-                .startingItemsChooseContainers {
-                    .startingItemTitle {
-                        margin-top: 0.25rem;
-                    }
-                }
+                .classBtnContainers {
+                    display: flex;
+                    align-items: center;
+                    gap: 0 1rem;
 
-                .classBtns {
-                    text-transform: uppercase;
-                    font-family: 'VT323', monospace;
-                    border-right: solid black 2px;
-                    border-bottom: solid black 2px;
-                    border-radius: 0.5rem;
-                    padding: 0.5rem;
-                    transition: 0.4s;
-                    font-size: 1.25rem;
-
-                    @include respondTo(md) {
-                        &:hover {
-                            cursor: pointer;
-                            transform: translateY(-4px);
-                            transition: 0.4s;
+                    .classBtns {
+                        text-transform: uppercase;
+                        font-family: 'VT323', monospace;
+                        border-right: solid black 2px;
+                        border-bottom: solid black 2px;
+                        border-radius: 0.5rem;
+                        padding: 0.5rem;
+                        transition: 0.4s;
+                        font-size: 1.25rem;
+    
+                        @include respondTo(md) {
+                            &:hover {
+                                cursor: pointer;
+                                transform: translateY(-4px);
+                                transition: 0.4s;
+                            }
                         }
                     }
+    
+                    .validateClassIcons {
+                        width: 24px;
+                        display: none;
+                    }    
                 }
             }
+        }
+    }
+
+    #startingItemsChooseContainers {
+        border: solid 2px black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 620px;
+        margin-top: 1rem;
+        border-radius: 0.5rem;
+        font-size: 1.25rem;
+        padding: 0.5rem;
+
+        h4 {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .radioContainers {
+            display: flex;
+            align-items: center;
+
+            input[type="radio"]:checked {
+                accent-color: black;
+                mix-blend-mode: multiply;
+            }
+        }
+    }
+
+    #startPrologueBtnContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem 0;
+        margin-top: 2rem;
+
+        #startPrologueBtn {
+            text-transform: uppercase;
+            font-family: 'VT323', monospace;
+            border-right: solid black 2px;
+            border-bottom: solid black 2px;
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            transition: 0.4s;
+            font-size: 1.25rem;
+    
+            @include respondTo(md) {
+                &:hover {
+                    cursor: pointer;
+                    transform: translateY(-4px);
+                    transition: 0.4s;
+                }
+            }
+        }
+
+        #startPrologueConditions {
+            font-size: 1rem;
+            display: none;
         }
     }
 }

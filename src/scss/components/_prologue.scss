@@ -1,39 +1,28 @@
-#playBtn {
-    font-size: 4rem;
+#prologueContainer {
+    font-size: 1.35rem;
+    border: solid 2px black;
+    border-radius: 0.5rem;
+    background-color: #eee;
+    padding: 1rem;
+}
+
+#passPrologueBtn {
+    font-size: 1.25rem;
     text-transform: uppercase;
     font-family: 'VT323', monospace;
     border-right: solid black 2px;
     border-bottom: solid black 2px;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 0.5rem;
-    padding: 0 1rem;
-    width: 150px;
-    height: 80px;
-    animation: slideAndReturn 2s 1;
+    padding: 0.5rem;
     transition: 0.4s;
+    margin-top: 2rem;
 
-    // 
-    display: none;
-    // 
-    
     @include respondTo(md) {
         &:hover {
             cursor: pointer;
             transform: translateY(-4px);
             transition: 0.4s;
         }
-    }
-
-    &.hidePlayBtn {
-        display: none;
-    }
-}
-
-@keyframes slideAndReturn {
-    0% {
-        transform: translateY(-200px);
-    }
-    100% {
-        transform: translateY(0);
     }
 }
