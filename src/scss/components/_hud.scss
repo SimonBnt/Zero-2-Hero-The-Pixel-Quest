@@ -12,15 +12,11 @@
             text-transform: uppercase;
             background-color: rgba(0, 0, 0, 0.8);
             color: #eee;
-            padding: 0.25rem;
-            border: solid 2px black;
+            padding: 0.5rem;
             border-radius: 0.5rem;
             font-size: 0.9rem;
-            width: 80px;
-
-            .names {
-                text-align: center;
-            }
+            width: fit-content;
+            height: fit-content;
 
             #heroMana {
                 margin-bottom: 0.1rem;

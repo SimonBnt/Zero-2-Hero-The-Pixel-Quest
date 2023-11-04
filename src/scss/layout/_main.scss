@@ -1,7 +1,19 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100dvh; // // // // 
+    
+    @include respondTo(md) {
+        height: 100dvh;
+    }
+}
+
 .gameOff {
-    border: none !important;
-    box-shadow: unset !important;
-    background-color: unset !important;
+    // border: none !important;
+    // box-shadow: unset !important;
+    // background-color: unset !important;
 }
 
 #screen {
@@ -10,16 +22,13 @@
     border: solid 4px black;
     border-radius: 0.75rem;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+   
 
     #gameContainer {
-        // js event on playBtn //
+        width: 100%;
         
         &.gameOff {
-            display: none;
+            // display: none;
         }
 
         #canvasContainer {
@@ -30,7 +39,29 @@
                 border-top-right-radius: 0.5rem;
                 border-top-left-radius: 0.5rem;
             }
+
+            .nameAndLevelContainers {
+                display: flex;
+                position: absolute;
+                bottom: 0;
+                color: white;
+                gap: 0 1rem;
+                
+                .names {
+                    text-align: center;
+                    text-transform: uppercase;
+                }
     
+            }
+            
+            #heroNameAndLevelContainer {
+                left: 2rem;
+            }
+
+            #bossNameAndLevelContainer {
+                right: 2rem;
+            }
+
             #objectInventory {
                 position: absolute;
                 bottom: 0;

@@ -1,28 +1,60 @@
 #prologueContainer {
-    font-size: 1.35rem;
+    font-size: 1rem;
     border: solid 2px black;
     border-radius: 0.5rem;
     background-color: #eee;
-    padding: 1rem;
+    padding: 1.5rem;
+    margin-top: 6rem;
+    width: 320px;
+    display: none;
+    margin-bottom: 2rem;
+
+    @include respondTo(sm) {
+        width: 600px;
+        font-size: 1.25rem;
+    }
+
+    @include respondTo(md) {
+        width: 1200px;
+        font-size: 1.5rem;
+    }
 }
 
 #passPrologueBtn {
-    font-size: 1.25rem;
+    font-size: 1rem;
     text-transform: uppercase;
     font-family: 'VT323', monospace;
     border-right: solid black 2px;
     border-bottom: solid black 2px;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
     border-radius: 0.5rem;
     padding: 0.5rem;
     transition: 0.4s;
-    margin-top: 2rem;
+    animation: prologueBtnSlideAndReturn 2s 1;
+    margin-bottom: 8rem;
+    display: none;
+
+    @include respondTo(sm) {
+        font-size: 1.25rem;
+    }
 
     @include respondTo(md) {
+        font-size: 1.5rem;
+
         &:hover {
             cursor: pointer;
             transform: translateY(-4px);
             transition: 0.4s;
         }
+    }
+}
+
+@keyframes prologueBtnSlideAndReturn {
+    0% {
+        transform: translateY(100px);
+    }
+    100% {
+        transform: translateY(0);
     }
 }

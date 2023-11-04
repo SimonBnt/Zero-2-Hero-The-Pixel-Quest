@@ -2,8 +2,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // VARIABLES //   
 
+    const main = document.getElementById("main")
     const screen = document.getElementById("screen")
     const canvasContainer = document.getElementById("canvasContainer")
+    const playBtnContainer = document.getElementById("playBtnContainer")
     const playBtn = document.getElementById("playBtn")
     const gameContainer = document.getElementById("gameContainer")
     const nameAndClassChooseContainer = document.getElementById("nameAndClassChooseContainer")
@@ -17,18 +19,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const classButtons = document.querySelectorAll(".classBtns")
     const startPrologueBtn = document.getElementById("startPrologueBtn")
     const startPrologueConditions = document.getElementById("startPrologueConditions")
-    const prologueMainContainer = document.getElementById("prologueMainContainer")
     const prologueContainer = document.getElementById("prologueContainer")
+    const passPrologueBtn = document.getElementById("passPrologueBtn")
 
     let playerName = ""
     let selectedStartingItem = ""
     let selectedClass = ""
     
-    const prologueText = "Bonjour, je suis une chaîne de caractères !";
+    const prologueTextEn = "In a world teeming with magic, mystical creatures, and ancient relics, the land of Eldoria stands at the nexus of fate and destiny. For centuries, this realm has been a beacon of both hope and despair, where heroes and villains alike have shaped the course of history. Eldoria, a land divided by its elemental kingdoms, is a place of both wonder and peril. The Kingdom of Arandor, nestled among the forests and rivers, is home to the Elves, skilled in archery and nature magic. The Dwarves of Molnaria, deep beneath the earth, forge mighty weapons and craft intricate artifacts, while the Desert Kingdom of Pyra'kaz shelters the enigmatic Fire Drakes and fire-wielding sorcerers. Yet, not all in Eldoria is harmonious. The power-hungry Crimson Brotherhood, a shadowy organization, seeks to control the ancient Relics of Eldoria, said to grant unimaginable power. The people of Eldoria live in fear of their sinister ambitions, but a prophecy speaks of a hero who will rise to vanquish this malevolent force. As darkness looms, a mysterious figure known as the Wanderer emerges from the shadows, bearing a scarred past and an enigmatic destiny. The Wanderer is fated to be the one to unlock the secrets of the Relics, reawaken the Guardians of the Elements, and unite the fractured kingdoms to face the imminent threat. Gather your courage and face legendary monsters, the fate of this world will rest in your hands. Are you prepared to forge your own legend along the way? The destiny of Eldoria awaits, and your adventure is about to begin.";
 
-    // screen.classList.remove("gameOff")
-    // gameContainer.classList.remove("gameOff")
-
+    // const prologueTextFr = "Dans un monde regorgeant de magie, de créatures mystiques et d'artefacts anciens, la terre d'Eldoria se tient au carrefour du destin et de la destinée. Depuis des siècles, ce royaume a été à la fois un phare d'espoir et de désespoir, où les héros et les méchants ont façonné le cours de l'histoire. Eldoria, une terre divisée par ses royaumes élémentaires, est à la fois un lieu de merveilles et de périls. Le Royaume d'Arandor, niché parmi les forêts et les rivières, est le foyer des Elfes, experts en tir à l'arc et en magie de la nature. Les Nains de Molnaria, profondément sous terre, forgent de puissantes armes et créent des artefacts complexes, tandis que le Royaume Désertique de Pyra'kaz abrite les énigmatiques Drakoniens de Feu et les sorciers maniant le feu. Cependant, tout n'est pas harmonieux à Eldoria. La Confrérie Écarlate avide de pouvoir, une organisation ténébreuse, cherche à contrôler les anciens Reliques d'Eldoria, réputées pour accorder un pouvoir inimaginable. Les habitants d'Eldoria vivent dans la crainte de leurs ambitions sinistres, mais une prophétie parle d'un héros qui se lèvera pour vaincre cette force malveillante. Alors que l'obscurité se profile, une figure mystérieuse connue sous le nom du Vagabond émerge des ombres, portant un passé marqué et une destinée énigmatique. Le Vagabond est voué à être celui qui dévoilera les secrets des Reliques, réveillera les Gardiens des Éléments et unira les royaumes divisés pour faire face à la menace imminente. Rassemblez votre courage et affrontez des monstres légendaires, le destin de ce monde reposera entre vos mains. Êtes-vous prêt à forger votre propre légende en cours de route ? La destinée d'Eldoria vous attend, et votre aventure est sur le point de commencer."
 
     // THE GAME CONSTRUCTOR //
   
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
             playBtn.addEventListener("click", () => this.pushPlayBtn())
                 heroNameContainer.addEventListener("click", () => {
                 heroNameContainer.style.display = "none"
-                nameInput.style.display = "inline"
+                nameInput.style.display = "flex"
                 saveNameButton.style.display = "flex"
                 validateNameIcon.style.display = "none"
                 nameMoreInfo.textContent = "*If you don't choose a new name, 'Zero' will be choose by default if you save."
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 nameInput.style.display = "none";
-                heroNameContainer.style.display = "inline";
+                heroNameContainer.style.display = "flex";
                 heroNameContainer.style.overflow = "hidden";
                 playerName = validateHeroName.textContent
             })
@@ -100,16 +100,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
             startPrologueBtn.addEventListener("click", () => {
                 if (playerName && selectedStartingItem && selectedClass) {
-                    nameAndClassChooseContainer.style.display = "none"
-                    prologueMainContainer.style.display = "block"
+                    nameAndClassChooseContainer.remove()
+                    prologueContainer.style.display = "block"
+                    passPrologueBtn.style.display = "block"
                 } else {
-                    startGameConditions.style.display = "block"
+                    startPrologueConditions.style.display = "block"
                 }
-
-                // this.showPrologueTextCharacterByCharacter(prologueText)
+                this.showPrologueTextCharacterByCharacter(prologueTextEn)
             })
             
-            this.showPrologueTextCharacterByCharacter(prologueText)
+            passPrologueBtn.addEventListener("click", () => {
+                prologueContainer.remove()
+                passPrologueBtn.remove()
+
+                screen.classList.remove("gameOff")
+                gameContainer.classList.remove("gameOff")
+                main.style.height = "100dvh"
+            })
         }
 
         loadImages() {
@@ -129,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         pushPlayBtn() {
-            playBtn.classList.add("hidePlayBtn")
+            playBtnContainer.remove()
             nameAndClassChooseContainer.classList.remove("gameOff")
         }
         
@@ -137,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
             for (let i = 0; i < element.length; i++) {
                 setTimeout(() => {
                     prologueContainer.innerHTML += element[i]
-                }, i * 100)
+                }, i * 1)
             }
         }
     }

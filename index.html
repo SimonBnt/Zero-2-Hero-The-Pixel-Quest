@@ -25,162 +25,177 @@
     <header>
         <h1>Zero 2 Hero : The Pixel Quest</h1>
     </header>
-    <main id="screen" class="gameOff">
+    <main id="main">
+        <div id="screen" class="gameOff">
+            <!-- PLAY BTN -->
 
-        <!-- PLAY BTN -->
-
-        <button id="playBtn"></button>
-
-        <!-- NAME AND CLASS CHOOSE -->
-
-        <div id="nameAndClassChooseContainer" class="gameOff">
-            <div id="nameEditContainer">
-                <span>Choose your name :</span>
-                <span id="heroNameContainer" class="nameElements">Zero</span>
-                <input type="text" id="nameInput" class="nameElements">
-                <button id="saveNameButton" class="nameElements">Save</button>
-                <img src="https://cdn-icons-png.flaticon.com/128/5254/5254913.png" alt="Validation icon" id="validateNameIcon">
-                <span id="nameMoreInfo"></span>
+            <div id="playBtnContainer">
+                <button id="playBtn"></button>
             </div>
-            <div id="classChooseContainer">
-                <span>Choose your class : </span>
-                <span style="font-size: 1rem;">*All classes can heal and use items. Healing use mana.</span>
-                <div id="classMainContainer">
-                    <div id="warriorContainer" class="classContainers">
-                        <h4 class="classNames">warrior</h4>
-                        <div>Atk : 4</div>
-                        <div>Def : 3</div>
-                        <div>Int : 1</div>
-                        <div>1st hand : Wood sword</div>
-                        <div>2nd hand : Wood Shield</div>
-                        <div>Body : Chainmail</div>
-                        <div>Head : Empty</div>
-                        <div class="classInfos">*Critical strikes stun enemies during 1 turn</div>
-                        <div class="classBtnContainers">
-                            <button id="warriorChooseBtn" class="classBtns" data-class="Warrior">Choose the "Warrior"</button>
-                            <img src="https://cdn-icons-png.flaticon.com/128/5254/5254913.png" alt="Validation icon" class="validateClassIcons" data-class="Warrior">
+
+            <!-- NAME AND CLASS CHOOSE -->
+
+            <div id="nameAndClassChooseContainer" class="gameOff">
+                <div id="nameEditContainer">
+                    <span>Choose your name :</span>
+                    <span id="heroNameContainer" class="nameElements">Zero</span>
+                    <div id="saveBtnContainer">
+                        <button id="saveNameButton" class="nameElements">Save</button>
+                        <img src="https://cdn-icons-png.flaticon.com/128/5254/5254913.png" alt="Validation icon" id="validateNameIcon">
+                    </div>
+                    <input type="text" id="nameInput" class="nameElements">
+                    <span id="nameMoreInfo"></span>
+                </div>
+                <div id="classChooseContainer">
+                    <span>Choose your class : </span>
+                    <span style="font-size: 1rem;">*All classes can heal and use items. Healing use mana.</span>
+                    <div id="classMainContainer">
+                        <div id="warriorContainer" class="classContainers">
+                            <h4 class="classNames">warrior</h4>
+                            <div>Atk : 4</div>
+                            <div>Def : 3</div>
+                            <div>Int : 1</div>
+                            <div>1st hand : Wood sword</div>
+                            <div>2nd hand : Wood Shield</div>
+                            <div>Body : Chainmail</div>
+                            <div>Head : Empty</div>
+                            <div class="classInfos">*Critical strikes stun enemies during 1 turn</div>
+                            <div class="classBtnContainers">
+                                <button id="warriorChooseBtn" class="classBtns" data-class="Warrior">Choose the "Warrior"</button>
+                                <img src="https://cdn-icons-png.flaticon.com/128/5254/5254913.png" alt="Validation icon" class="validateClassIcons" data-class="Warrior">
+                            </div>
+                        </div>
+                        <div id="wizardContainer" class="classContainers">
+                            <h4 class="classNames">wizard</h4>
+                            <div>Atk : 1</div>
+                            <div>Def : 2</div>
+                            <div>Int : 4</div>
+                            <div>1st hand : Wood wand</div>
+                            <div>2nd hand : Empty</div>
+                            <div>Body : Silk dress</div>
+                            <div>Head : "Magic" hat</div>
+                            <div class="classInfos">*Wizard make lot of damage but use magic to fight, it means that if you don't have mana you will have to fight with your "magic" wood stick. To defend yourself you have to use your magic shield, it also use mana.</div>
+                            <div class="classBtnContainers">
+                                <button id="wizardChooseBtn" class="classBtns" data-class="Wizard">Choose the "Wizard"</button>
+                                <img src="https://cdn-icons-png.flaticon.com/128/5254/5254913.png" alt="Validation icon" class="validateClassIcons" data-class="Wizard">
+                            </div>
                         </div>
                     </div>
-                    <div id="wizardContainer" class="classContainers">
-                        <h4 class="classNames">wizard</h4>
-                        <div>Atk : 1</div>
-                        <div>Def : 2</div>
-                        <div>Int : 4</div>
-                        <div>1st hand : Wood wand</div>
-                        <div>2nd hand : Empty</div>
-                        <div>Body : Silk dress</div>
-                        <div>Head : "Magic" hat</div>
-                        <div class="classInfos">*Wizard make lot of damage but use magic to fight, it means that if you don't have mana you will have to fight with your "magic" wood stick. To defend yourself you have to use your magic shield, it also use mana.</div>
-                        <div class="classBtnContainers">
-                            <button id="wizardChooseBtn" class="classBtns" data-class="Wizard">Choose the "Wizard"</button>
-                            <img src="https://cdn-icons-png.flaticon.com/128/5254/5254913.png" alt="Validation icon" class="validateClassIcons" data-class="Wizard">
-                        </div>
+                </div>
+                <div id="startingItemsChooseContainers">
+                    <h4>starting Item</h4>
+                    <div class="radioContainers">
+                        <label for="bandage">Bandage (10pv)</label>
+                        <input type="radio" name="startingItemRadio" value="bandage">
+                    </div>
+                    <div class="radioContainers">
+                        <label for="water">Water bottle (10mana)</label>
+                        <input type="radio" name="startingItemRadio" value="water">
+                    </div>
+                    <div class="radioContainers">
+                        <label for="ticket">merchant's ticket (summon merchant)</label>
+                        <input type="radio" name="startingItemRadio" value="ticket">
                     </div>
                 </div>
-            </div>
-            <div id="startingItemsChooseContainers">
-                <h4>starting Item</h4>
-                <div class="radioContainers">
-                    <label for="bandage">Bandage (10pv)</label>
-                    <input type="radio" name="startingItemRadio" value="bandage">
-                </div>
-                <div class="radioContainers">
-                    <label for="water">Water bottle (10mana)</label>
-                    <input type="radio" name="startingItemRadio" value="water">
-                </div>
-                <div class="radioContainers">
-                    <label for="ticket">merchant's ticket (summon merchant)</label>
-                    <input type="radio" name="startingItemRadio" value="ticket">
-                </div>
-            </div>
-            <div id="startPrologueBtnContainer">
-                <button id="startPrologueBtn">start the game !</button>
-                <div id="startPrologueConditions">*You have to choose a name, a starting item and finally choose a class before start the game.</div>
-            </div>
-        </div>
-
-        <div id="prologueContainer"></div>    
-        <button id="passPrologueBtn">pass the prologue</button>
-
-
-        <div id="gameContainer" class="gameOff">
-
-                <!-- Canvas -->
-
-            <div id="canvasContainer">
-                <canvas class="gameCanvas" width="352" height="198"></canvas>
-
-                <div id="itemInventory">
-                    <ul>
-                        <li>head : helmet</li>
-                        <li>body : armune</li>
-                        <li>1st hand : sword</li>
-                        <li>2nd hand : shield</li>
-                        <li>necklace : fire necklace</li>
-                        <li>ring : fire ring</li>
-                    </ul>
-                </div>
-                <div id="objectInventory">
-                    <ul>
-                        <!-- <li></li> -->
-                    </ul>
+                <div id="startPrologueBtnContainer">
+                    <button id="startPrologueBtn">start the game !</button>
+                    <div id="startPrologueConditions">*You have to choose a name, a starting item and finally choose a class before start the game.</div>
                 </div>
             </div>
 
-            <!-- HUD -->
+            <div id="prologueContainer"></div>    
+            <button id="passPrologueBtn">pass the prologue</button>
 
-            <section id="hudContainer">
-                <div id="hud">
-                    <div id="levelState">level n° 1/10</div>
-                    <div id="heroStatsContainer" class="statsMainContainers">
+
+            <div id="gameContainer" class="gameOff">
+
+                    <!-- Canvas -->
+
+                <div id="canvasContainer">
+                    <canvas class="gameCanvas" width="352" height="198"></canvas>
+
+                    <div id="heroNameAndLevelContainer" class="nameAndLevelContainers">
                         <div id="validateHeroName" class="names">zero</div>
-                        <div id="heroHP">pv : 10</div>
-                        <div id="heroMana">mana : 10</div>
-                        <div class="statsContainers">
-                            <div id="heroAtk" class="stats">atk : 1</div>
-                            <span class="statsUp">+</span>
-                        </div>
-                        <div class="statsContainers">
-                            <div id="heroDef" class="stats">def : 1</div>
-                            <span class="statsUp">+</span>
-                        </div>
-                        <div class="statsContainers">
-                            <div id="heroMag" class="stats">int : 1</div>
-                            <span class="statsUp">+</span>
-                        </div>
+                        <div id="heroLvl">Lvl : 1</div>
                     </div>
-                    <div id="bossStatsContainer" class="statsMainContainers">
+
+                    <div id="bossNameAndLevelContainer" class="nameAndLevelContainers">
                         <div id="bossName" class="names">boss</div>
-                        <div id="bossHP">pv : 10</div>
-                        <div id="bossMana">mana : 10</div>
-                        <div id="bossAtk">atk : 1</div>
-                        <div id="bossDef">def : 1</div>
-                        <div id="bossMag">int : 1</div>
+                        <div id="bossLvl">Lvl : 1</div>
                     </div>
+
+                    <div id="itemInventory">
+                        <ul>
+                            <li>head : helmet</li>
+                            <li>body : armune</li>
+                            <li>1st hand : sword</li>
+                            <li>2nd hand : shield</li>
+                            <li>necklace : fire necklace</li>
+                            <li>ring : fire ring</li>
+                        </ul>
+                    </div>
+
+                    <div id="objectInventory">
+                        <ul>
+                            <!-- <li></li> -->
+                        </ul>
+                    </div>
+
+                    <!-- HUD -->
+    
+                    <section id="hudContainer">
+                        <div id="hud">
+                            <div id="levelState">level n° 1/10</div>
+                            <div id="heroStatsContainer" class="statsMainContainers">
+                                <div id="heroHP">pv : 10</div>
+                                <div id="heroMana">mana : 10</div>
+                                <div class="statsContainers">
+                                    <div id="heroAtk" class="stats">atk : 1000</div>
+                                    <span class="statsUp">+</span>
+                                </div>
+                                <div class="statsContainers">
+                                    <div id="heroDef" class="stats">def : 1</div>
+                                    <span class="statsUp">+</span>
+                                </div>
+                                <div class="statsContainers">
+                                    <div id="heroMag" class="stats">int : 1</div>
+                                    <span class="statsUp">+</span>
+                                </div>
+                            </div>
+                            <div id="bossStatsContainer" class="statsMainContainers">
+                                <div id="bossHP">pv : 10</div>
+                                <div id="bossMana">mana : 10</div>
+                                <div id="bossAtk">atk : 1</div>
+                                <div id="bossDef">def : 1</div>
+                                <div id="bossMag">int : 1</div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-            </section>
 
-            <!-- Controller -->
 
-            <section id="control"> 
-                <button id="atk">attack</button>   
-                <button id="def">defence</button>
-                <button id="heal">heal</button>
-                <button id="obj">objects</button>
+                <!-- Controller -->
 
-                <!-- inventory opener -->
+                <section id="control"> 
+                    <button id="atk">attack</button>   
+                    <button id="def">defence</button>
+                    <button id="heal">heal</button>
+                    <button id="obj">objects</button>
 
-                <button id="itemInventoryOpener">inventory</button>
-            </section>
+                    <!-- inventory opener -->
 
-            <!-- Game State Dialogue Box -->
+                    <button id="itemInventoryOpener">inventory</button>
+                </section>
 
-            <section id="dialogueBoxContainer">
-                <div id="dialogueBox">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet totam, illum nisi fugiat corporis sed consequatur ut non asperiores? Magnam veritatis praesentium sunt ducimus corrupti pariatur qui veniam, amet aut tenetur laboriosam modi ipsam nulla commodi impedit culpa, error maiores cupiditate nobis. Incidunt explicabo a corrupti, doloremque enim ducimus aperiam!</div>
-                <img src="https://cdn-icons-png.flaticon.com/128/54/54817.png" alt="" class="scroll" id="scrollTop"> 
-                <img src="https://cdn-icons-png.flaticon.com/128/54/54785.png" alt="" class="scroll" id="scrollBottom">
-            </section>
-        </div>
+                <!-- Game State Dialogue Box -->
+
+                <section id="dialogueBoxContainer">
+                    <div id="dialogueBox">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet totam, illum nisi fugiat corporis sed consequatur ut non asperiores? Magnam veritatis praesentium sunt ducimus corrupti pariatur qui veniam, amet aut tenetur laboriosam modi ipsam nulla commodi impedit culpa, error maiores cupiditate nobis. Incidunt explicabo a corrupti, doloremque enim ducimus aperiam!</div>
+                    <img src="https://cdn-icons-png.flaticon.com/128/54/54817.png" alt="" class="scroll" id="scrollTop"> 
+                    <img src="https://cdn-icons-png.flaticon.com/128/54/54785.png" alt="" class="scroll" id="scrollBottom">
+                </section>
+            </div>
+        </div>    
     </main>
     <footer>
         <a href="">@mentions légales</a>
