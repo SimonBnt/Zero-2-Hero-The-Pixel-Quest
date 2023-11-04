@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
             for (let i = 0; i < element.length; i++) {
                 setTimeout(() => {
                     prologueContainer.innerHTML += element[i]
-                }, i * 1)
+                }, i * 40)
             }
         }
     }
@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (currentIndex < text.length) {
                 element.innerText += text[currentIndex]
                 currentIndex++
-                setTimeout(updateText, 500)
+                setTimeout(updateText, 400)
             }
         }
         updateText()

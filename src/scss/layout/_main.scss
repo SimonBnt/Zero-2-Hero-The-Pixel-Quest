@@ -3,7 +3,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100dvh; // // // // 
+    // height: 100dvh;
     
     @include respondTo(md) {
         height: 100dvh;
@@ -11,9 +11,9 @@ main {
 }
 
 .gameOff {
-    // border: none !important;
-    // box-shadow: unset !important;
-    // background-color: unset !important;
+    border: none !important;
+    box-shadow: unset !important;
+    background-color: unset !important;
 }
 
 #screen {
@@ -22,13 +22,17 @@ main {
     border: solid 4px black;
     border-radius: 0.75rem;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
    
 
     #gameContainer {
         width: 100%;
         
         &.gameOff {
-            // display: none;
+            display: none;
         }
 
         #canvasContainer {
