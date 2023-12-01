@@ -29,7 +29,7 @@
     }
 
     #nameEditContainer {
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -117,24 +117,31 @@
                 }
             }
 
+            
+        }
+
+        #nameMoreInfoContainer {
+            position: relative;
+            
+            #nameMoreInfo {
+                font-size: 1rem;
+                word-break: break-all;
+    
+                @include respondTo(md) {
+                    // margin-left: 2rem;
+                }
+            }
+
             #validateNameIcon {
                 position: absolute;
                 right: -2.5rem;
                 top: 50%;
                 transform: translateY(-50%);
-                width: 24px;
+                width: 30px;
                 display: none;
             }
         }
 
-        #nameMoreInfo {
-            font-size: 1rem;
-            word-break: break-all;
-
-            @include respondTo(md) {
-                margin-left: 2rem;
-            }
-        }
     }
 
     #classChooseContainer {
@@ -166,6 +173,8 @@
                 width: 300px;
                 margin-top: 1rem;
                 padding: 0.5rem;
+                display: flex;
+                flex-direction: column;
 
                 .classNames {
                     font-size: 1.35rem;
@@ -189,6 +198,12 @@
                 .classInfos {
                     margin-top: 0.25rem;
                     opacity: 0.8;
+                }
+
+                .classImgs {
+                    width: 42px;
+                    margin: 0.5rem auto;
+
                 }
 
                 .classBtnContainers {
